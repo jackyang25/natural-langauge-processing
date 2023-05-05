@@ -19,5 +19,5 @@ numbered_sections = ["ABSTRACTID\n" + section for section in sections if section
 numbered_text = "".join(numbered_sections)
 
 
-with open("Datasets/merged_dataset.txt", "w") as f:
+with open("Datasets/raw_merged_dataset.txt", "w") as f:
     f.write(numbered_text)
