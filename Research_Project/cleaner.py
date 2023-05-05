@@ -29,13 +29,13 @@ def remove_stopwords(text):
     return cleaned_text
 
 def main():
-    with open('Datasets/merged_dataset copy.txt', 'r', encoding='utf-8') as infile:
+    with open('Datasets/raw_merged_dataset.txt', 'r', encoding='utf-8') as infile:
         text = infile.read()
 
     text = remove_non_basic_ascii(text)
     cleaned_text = remove_stopwords(text)
 
-    with open('Datasets/cleaned_dataset.txt', 'w', encoding='utf-8') as outfile:
+    with open('Datasets/preprocessed_dataset.txt', 'w', encoding='utf-8') as outfile:
         outfile.write(cleaned_text)
 
 if __name__ == '__main__':
