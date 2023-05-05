@@ -99,7 +99,7 @@ def compress(input_filepath, filter_words, percentage):
 
     filtered_text = "\n".join(filtered_lines)
 
-    with open(f'Training_Data/raw_compressed_dataset_{100 - (int(percentage * 100))}.txt', 'w') as f:
+    with open(f'Training_Data/raw_compressed_dataset{100 - (int(percentage * 100))}.txt', 'w') as f:
         f.write("ABSTRACTID\n")
         f.write(filtered_text)
 
@@ -109,7 +109,7 @@ def compress(input_filepath, filter_words, percentage):
 
 
 def main():
-    compress_corpus = 'Training_Data/cleaned_dataset.txt'
+    compress_corpus = 'Training_Data/preprocessed_dataset.txt'
 
     text = load_data(compress_corpus)
     documents = tokenize_documents(text)
