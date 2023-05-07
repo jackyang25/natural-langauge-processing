@@ -99,7 +99,7 @@ def compress(input_filepath, filter_words, percentage):
 
     filtered_text = "\n".join(filtered_lines)
 
-    with open(f'Training_Data/raw_compressed_dataset{100 - (int(percentage * 100))}.txt', 'w') as f:
+    with open(f'Training_Data/raw_compressed{total_words_after/total_words_before}_dataset.txt', 'w') as f:
         f.write("ABSTRACTID\n")
         f.write(filtered_text)
 
@@ -116,10 +116,10 @@ def main():
     tfidf_dict = compute_tfidf(documents)
     sorted_dict = sort_tfidf_dict(tfidf_dict)
 
-    compression = .80  # set filter amount hyperparameter
-    filter_words = get_filter_words(1 - compression, sorted_dict)
+    filter_amount = .80  # set filter amount hyperparameter
+    filter_words = get_filter_words(1 - filter_amount, sorted_dict)
 
-    compress(compress_corpus, filter_words, 1 - compression)
+    compress(compress_corpus, filter_words, 1 - filter_amount)
 
 
 if __name__ == '__main__':
