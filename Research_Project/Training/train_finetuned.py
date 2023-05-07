@@ -73,6 +73,6 @@ trainer.train()
 # In[ ]:
 
 
-model.save_pretrained("FineTuned_Models/")
-tokenizer.save_pretrained("FineTuned_Models/")
+model.save_pretrained("FineTuned_Models/New/")
+tokenizer.save_pretrained("FineTuned_Models/New/")
 
