@@ -26,7 +26,7 @@ def tokenize_function(examples):
     return output  
 
 dataset = load_dataset("text", data_files={"train": "compressed_medical.txt"})
-tokenized_dataset = dataset.map(tokenize_function, batched=True, remove_columns=['text'], cache_dir='CACHE_DIRECTORY')
+tokenized_dataset = dataset.map(tokenize_function, batched=True, remove_columns=['text'])
 
 
 # In[ ]:
