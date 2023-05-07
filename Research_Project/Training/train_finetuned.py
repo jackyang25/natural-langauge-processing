@@ -15,8 +15,8 @@ from transformers import GPT2Tokenizer
 from transformers import GPTNeoForCausalLM, GPT2Tokenizer
 from transformers import GPTNeoForCausalLM, Trainer, TrainingArguments
 
-model = GPTNeoForCausalLM.from_pretrained("gptneopretrained/")
-tokenizer = GPT2Tokenizer.from_pretrained("gptneopretrained/")
+model = GPTNeoForCausalLM.from_pretrained("Pretrained_GPTNeo/")
+tokenizer = GPT2Tokenizer.from_pretrained("Pretrained_GPTNeo/")
 tokenizer.pad_token = tokenizer.eos_token
 
 def tokenize_function(examples):
@@ -24,7 +24,7 @@ def tokenize_function(examples):
     output["labels"] = output["input_ids"].clone()
     return output  
 
-dataset = load_dataset("text", data_files={"train": "total_medical.txt"})
+dataset = load_dataset("text", data_files={"train": "Datasets/merged_dataset.txt"})
 tokenized_dataset = dataset.map(tokenize_function, batched=True, remove_columns=['text'])
 
 
@@ -73,6 +73,6 @@ trainer.train()
 # In[ ]:
 
 
-model.save_pretrained("gptneoFineTunedMedical/")
-tokenizer.save_pretrained("gptneoFineTunedMedical/")
+model.save_pretrained("FineTuned_Models/")
+tokenizer.save_pretrained("FineTuned_Models/")
 
