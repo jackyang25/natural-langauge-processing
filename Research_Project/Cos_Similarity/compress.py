@@ -241,7 +241,7 @@ def main():
         'domain_vectors.txt')
     kmeans_domain_vectors = compute_means_module.kmeans_clustering(domain_vector_list)
 
-    # Run once on desired hyperparameter
+    # Run concatenate once on desired hyperparameters
     tokenize_length = 256 # length (BPE) per line of data
     raw_training_corpus = 'medical_corpus.txt'
     concatenate(raw_training_corpus, tokenize_length)
