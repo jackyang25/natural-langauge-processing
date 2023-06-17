@@ -12,7 +12,6 @@ output_file_title = []
 
 
 def concatenate(raw_training_corpus, tokenize_length):
-    # Returns optimized line length using byte-pair encoding
     print("Concatenating", raw_training_corpus, "...", "\n")
 
     tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
@@ -20,6 +19,8 @@ def concatenate(raw_training_corpus, tokenize_length):
     with open('Datasets/' + raw_training_corpus, 'r') as f:
         text = f.read()
         words = text.split()
+
+        words = [word for word in words if word.isascii()]
 
         lines = []
         current_line = []
