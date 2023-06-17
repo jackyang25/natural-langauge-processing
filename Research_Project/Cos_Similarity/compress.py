@@ -20,7 +20,7 @@ def concatenate(raw_training_corpus, tokenize_length):
         text = f.read()
         words = text.split()
 
-        words = [word for word in words if word.isascii()]
+        words = [word for word in words if word.isascii() and word.isprintable()]
 
         lines = []
         current_line = []
